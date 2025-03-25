@@ -1,0 +1,167 @@
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\cchE3Swk.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"mq135.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "../../../src/mq135.c"
+  18              		.section	.text.mq135_set_hw_ops,"ax",%progbits
+  19              		.align	1
+  20              		.global	mq135_set_hw_ops
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	mq135_set_hw_ops:
+  26              	.LVL0:
+  27              	.LFB0:
+   1:../../../src/mq135.c **** #include "mq135.h"
+   2:../../../src/mq135.c **** 
+   3:../../../src/mq135.c **** static mq135_hw_ops_t hw_ops;
+   4:../../../src/mq135.c **** 
+   5:../../../src/mq135.c **** void mq135_set_hw_ops(mq135_hw_ops_t *ops)
+   6:../../../src/mq135.c **** {
+  28              		.loc 1 6 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+   7:../../../src/mq135.c ****     hw_ops = *ops;
+  33              		.loc 1 7 5 view .LVU1
+  34              		.loc 1 7 12 is_stmt 0 view .LVU2
+  35 0000 0268     		ldr	r2, [r0]
+  36 0002 014B     		ldr	r3, .L2
+  37 0004 1A60     		str	r2, [r3]
+   8:../../../src/mq135.c **** }
+  38              		.loc 1 8 1 view .LVU3
+  39 0006 7047     		bx	lr
+  40              	.L3:
+  41              		.align	2
+  42              	.L2:
+  43 0008 00000000 		.word	hw_ops
+  44              		.cfi_endproc
+  45              	.LFE0:
+  47              		.section	.text.mq135_read_adc,"ax",%progbits
+  48              		.align	1
+  49              		.global	mq135_read_adc
+  50              		.syntax unified
+  51              		.thumb
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\cchE3Swk.s 			page 2
+
+
+  52              		.thumb_func
+  54              	mq135_read_adc:
+  55              	.LFB1:
+   9:../../../src/mq135.c **** 
+  10:../../../src/mq135.c **** uint32_t mq135_read_adc(void)
+  11:../../../src/mq135.c **** {
+  56              		.loc 1 11 1 is_stmt 1 view -0
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 0
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60 0000 08B5     		push	{r3, lr}
+  61              	.LCFI0:
+  62              		.cfi_def_cfa_offset 8
+  63              		.cfi_offset 3, -8
+  64              		.cfi_offset 14, -4
+  12:../../../src/mq135.c ****     if (hw_ops.read)
+  65              		.loc 1 12 5 view .LVU5
+  66              		.loc 1 12 15 is_stmt 0 view .LVU6
+  67 0002 044B     		ldr	r3, .L8
+  68 0004 1B68     		ldr	r3, [r3]
+  69              		.loc 1 12 8 view .LVU7
+  70 0006 0BB1     		cbz	r3, .L6
+  13:../../../src/mq135.c ****     {
+  14:../../../src/mq135.c ****         return hw_ops.read();
+  71              		.loc 1 14 9 is_stmt 1 view .LVU8
+  72              		.loc 1 14 16 is_stmt 0 view .LVU9
+  73 0008 9847     		blx	r3
+  74              	.LVL1:
+  75              	.L4:
+  15:../../../src/mq135.c ****     }
+  16:../../../src/mq135.c ****     return -1;
+  17:../../../src/mq135.c **** }
+  76              		.loc 1 17 1 view .LVU10
+  77 000a 08BD     		pop	{r3, pc}
+  78              	.L6:
+  16:../../../src/mq135.c **** }
+  79              		.loc 1 16 12 view .LVU11
+  80 000c 4FF0FF30 		mov	r0, #-1
+  81 0010 FBE7     		b	.L4
+  82              	.L9:
+  83 0012 00BF     		.align	2
+  84              	.L8:
+  85 0014 00000000 		.word	hw_ops
+  86              		.cfi_endproc
+  87              	.LFE1:
+  89              		.section	.text.mq135_get_adc,"ax",%progbits
+  90              		.align	1
+  91              		.global	mq135_get_adc
+  92              		.syntax unified
+  93              		.thumb
+  94              		.thumb_func
+  96              	mq135_get_adc:
+  97              	.LFB2:
+  18:../../../src/mq135.c **** 
+  19:../../../src/mq135.c **** uint32_t mq135_get_adc(void)
+  20:../../../src/mq135.c **** {
+  98              		.loc 1 20 1 is_stmt 1 view -0
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\cchE3Swk.s 			page 3
+
+
+  99              		.cfi_startproc
+ 100              		@ args = 0, pretend = 0, frame = 0
+ 101              		@ frame_needed = 0, uses_anonymous_args = 0
+ 102 0000 08B5     		push	{r3, lr}
+ 103              	.LCFI1:
+ 104              		.cfi_def_cfa_offset 8
+ 105              		.cfi_offset 3, -8
+ 106              		.cfi_offset 14, -4
+  21:../../../src/mq135.c ****     return mq135_read_adc();
+ 107              		.loc 1 21 5 view .LVU13
+ 108              		.loc 1 21 12 is_stmt 0 view .LVU14
+ 109 0002 FFF7FEFF 		bl	mq135_read_adc
+ 110              	.LVL2:
+  22:../../../src/mq135.c **** }...
+ 111              		.loc 1 22 1 view .LVU15
+ 112 0006 08BD     		pop	{r3, pc}
+ 113              		.cfi_endproc
+ 114              	.LFE2:
+ 116              		.section	.bss.hw_ops,"aw",%nobits
+ 117              		.align	2
+ 120              	hw_ops:
+ 121 0000 00000000 		.space	4
+ 122              		.text
+ 123              	.Letext0:
+ 124              		.file 2 "C:/msys64/mingw64/arm-none-eabi/include/machine/_default_types.h"
+ 125              		.file 3 "C:/msys64/mingw64/arm-none-eabi/include/sys/_stdint.h"
+ 126              		.file 4 "../../../src/mq135.h"
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\cchE3Swk.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 mq135.c
+C:\Users\binhp\AppData\Local\Temp\cchE3Swk.s:19     .text.mq135_set_hw_ops:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\cchE3Swk.s:25     .text.mq135_set_hw_ops:00000000 mq135_set_hw_ops
+C:\Users\binhp\AppData\Local\Temp\cchE3Swk.s:43     .text.mq135_set_hw_ops:00000008 $d
+C:\Users\binhp\AppData\Local\Temp\cchE3Swk.s:120    .bss.hw_ops:00000000 hw_ops
+C:\Users\binhp\AppData\Local\Temp\cchE3Swk.s:48     .text.mq135_read_adc:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\cchE3Swk.s:54     .text.mq135_read_adc:00000000 mq135_read_adc
+C:\Users\binhp\AppData\Local\Temp\cchE3Swk.s:85     .text.mq135_read_adc:00000014 $d
+C:\Users\binhp\AppData\Local\Temp\cchE3Swk.s:90     .text.mq135_get_adc:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\cchE3Swk.s:96     .text.mq135_get_adc:00000000 mq135_get_adc
+C:\Users\binhp\AppData\Local\Temp\cchE3Swk.s:117    .bss.hw_ops:00000000 $d
+
+NO UNDEFINED SYMBOLS
